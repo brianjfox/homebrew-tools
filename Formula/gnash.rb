@@ -1,8 +1,8 @@
 class Gnash < Formula
   desc "Modular C++ reimplementation of GNU Bash 5.3 with shell personalities"
   homepage "https://github.com/brianjfox/gnash"
-  url "https://github.com/brianjfox/gnash/archive/refs/tags/gnash-1.0.4.tar.gz"
-  sha256 "21c468c8dc371534c893986d9fe4d911b3ac9662d0a69b2700f589569699bc69"
+  url "https://github.com/brianjfox/gnash/archive/refs/tags/gnash-1.1.0.tar.gz"
+  sha256 "0ebfcaa387ff565744ed97cb6d2803f057e6598d7baf88f8de64daa1202a0393"
   license "GPL-2.0-only" # GPLv2 with the GPLv2-AI Exception; see the repository
   head "https://github.com/brianjfox/gnash.git", branch: "main"
 
