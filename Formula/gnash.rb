@@ -1,18 +1,10 @@
 class Gnash < Formula
   desc "Modular C++ reimplementation of GNU Bash 5.3 with shell personalities"
   homepage "https://github.com/brianjfox/gnash"
-  url "https://github.com/brianjfox/gnash/archive/refs/tags/gnash-1.8.0.tar.gz"
-  sha256 "492cfb0b4995855689434542d7b8946b3f7045c481b3a46e3e08ce363bafaf87"
+  url "https://github.com/brianjfox/gnash/archive/refs/tags/gnash-1.8.1.tar.gz"
+  sha256 "1e73fd6126272a683bcdd125da298ce516377b26b3c98cdd8e05a407e477a70c"
   license "GPL-2.0-only" # GPLv2 with the GPLv2-AI Exception; see the repository
   head "https://github.com/brianjfox/gnash.git", branch: "main"
-
-  # Prebuilt binaries.  `brew install gnash' uses these when one exists for the
-  # host; otherwise it falls back to building from source.  Bottles are attached
-  # to the matching release in this tap's repo.
-  bottle do
-    root_url "https://github.com/brianjfox/homebrew-tools/releases/download/gnash-1.8.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "311806421d67a3442a5e18a2d82a5a63df893de3e0e7ebbe7182eb7edaea1e3e"
-  end
 
   depends_on "cmake" => :build
 
