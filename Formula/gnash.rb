@@ -6,6 +6,14 @@ class Gnash < Formula
   license "GPL-2.0-only" # GPLv2 with the GPLv2-AI Exception; see the repository
   head "https://github.com/brianjfox/gnash.git", branch: "main"
 
+  # Prebuilt binaries.  `brew install gnash' uses these when one exists for the
+  # host; otherwise it falls back to building from source.  Bottles are attached
+  # to the matching release in this tap's repo.
+  bottle do
+    root_url "https://github.com/brianjfox/homebrew-tools/releases/download/gnash-1.9.3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1afc136d33fc0278736978be6f59a04b1c4667d334a89e22f26718e897a7b914"
+  end
+
   depends_on "cmake" => :build
 
   def install
