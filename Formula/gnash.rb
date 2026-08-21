@@ -17,8 +17,16 @@ class Gnash < Formula
   depends_on "cmake" => :build
 
   def install
+    # Build for macOS 13+ so the (any_skip_relocation) bottle runs on every
+    # supported macOS, not only the version it was bottled on.  Superenv pins
+    # MACOSX_DEPLOYMENT_TARGET to the host, so both must be overridden.
+    args = []
+    if OS.mac?
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = "13.0"
+      args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.0"
+    end
     system "cmake", "-S", ".", "-B", "build",
-           "-DGNASH_WERROR=OFF", "-DGNASH_BUILD_TESTS=OFF", *std_cmake_args
+           "-DGNASH_WERROR=OFF", "-DGNASH_BUILD_TESTS=OFF", *args, *std_cmake_args
     system "cmake", "--build", "build"
     bin.install "build/core/gnash"
   end
